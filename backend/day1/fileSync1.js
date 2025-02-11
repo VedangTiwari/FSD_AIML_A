@@ -19,6 +19,16 @@ function myWriteFile() {
         console.log("File Writing Error", err.message)
     }
 }
+async function appendFile(fileName, data) {
+    try{
+        if (!data){
+            throw new Error("Data not provided");
+        }
+        fs.appendFileSync(filename, data);
+    } catch(err){
+        console.log(err.message);
+    }   
+}
 module.exports = {
     myReadFile: myReadFile,
     myWriteFile: myWriteFile,
